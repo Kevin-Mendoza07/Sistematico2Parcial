@@ -4,7 +4,12 @@ using System.Text;
 
 namespace Domain.Enums
 {
-    class TipoActivo
+   public enum TipoActivo
     {
+        Vehiculo,
+        Mobiliario,
+        Maquinaria,
+        Edificio,
+        EquipoComputo
     }
 }

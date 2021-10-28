@@ -1,4 +1,9 @@
-﻿using System;
+﻿using AppCore.Services;
+using Autofac;
+using Domain.Interfaces;
+using Infraestructura.ActivosFijos;
+using SistematicoActivo.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +19,16 @@ namespace SistematicoActivo
         [STAThread]
         static void Main()
         {
+            var builder = new ContainerBuilder();
+
+            builder.RegisterType<ActivoFijoModel>().As<IActivoFijoModel>();
+            builder.RegisterType<ActivoFijoService>().As<IActivoFijoService>();
+
+            var container = builder.Build();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FrmGestionActivo(container.Resolve<IActivoFijoService>()));
         }
     }
 }
