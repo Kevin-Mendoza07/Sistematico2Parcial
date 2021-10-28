@@ -44,6 +44,15 @@ namespace SistematicoActivo.Forms
                 rtbViewActivo.Text = "Esta vacia la lista de activos";
                 return;
             }
+            string text = string.Format("{0,5:d} {1,-20} {2,-15} {3,5:f} {4,-30:d} {5,4:d} \n", "Id", "Codigo", "Nombre", "Valor", "Fecha Adquisicion", "Tipo Activo");
+            rtbViewActivo.Text = text;
+
+            //MetodoDepreciacion procesoDepreciacion = new ProcesoDepreciacion();
+            //foreach (ActivoFijo af in activoFijos)
+            //{
+            //    rtbDepre.AppendText(af.ToString());
+            //    rtbDepre.AppendText($"{Environment.NewLine}");
+            //}
         }
     }
 }
